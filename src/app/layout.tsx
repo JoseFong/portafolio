@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Portafolio - José Fong",
   description: "Portafolio - José Fong",
   icons: {
-    icon: "/icon.png",
+    icon: "/favicon.png",
   },
 };
 
