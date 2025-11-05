@@ -1,113 +1,227 @@
-import Image from 'next/image'
+import { Project } from "@/types";
+import React from "react";
+import Image from "next/image";
+import phone from "@/assets/icons8-teléfono-50.png";
+import mail from "@/assets/icons8-correo-50.png";
+import github from "@/assets/icons8-github-50.png";
+import cv from "@/assets/icons8-plan-de-estudios-50.png";
+import world from "@/assets/icons8-globo-50.png";
+import ProjectCard from "@/Components/ProjectCard";
 
-export default function Home() {
+function Homepage() {
+  const projects: Project[] = [
+    {
+      id: 1,
+      name: "Tablero de tarjetas",
+      icon: "https://cdn-icons-png.freepik.com/256/4161/4161941.png?semt=ais_white_label",
+      pic: "https://i.imgur.com/VR0fFBO.png",
+      date: "Sep 2025",
+      desc: "Un tablero tipo Trello para organizar actividades en estados y columnas",
+      tech: "Next, Typescript, Prisma, Vercel, Netlify, Tailwind",
+      url: "https://tablerodetarjetas.netlify.app/",
+      git: "https://github.com/JoseFong/tablero-trello",
+    },
+    {
+      id: 2,
+      name: "Inventario para tiendas",
+      icon: "https://cdn-icons-png.flaticon.com/512/2897/2897785.png",
+      pic: "https://i.imgur.com/dc26c3a.png",
+      date: "Jun 2025",
+      desc: "Sistema de gestión de inventarios para productos, proveedores y ventas para tiendas o negocios.",
+      tech: "Next, Typescript, Prisma, Vercel, Netlify, Tailwind",
+      url: "https://inventario-tienda-fong.netlify.app",
+      git: "https://github.com/JoseFong/inventario-tienda",
+    },
+    {
+      id: 3,
+      name: "Agenda",
+      icon: "https://images.vexels.com/media/users/3/206164/isolated/preview/9c2166c157dce721fdaaeec772e03c0b-icono-de-trazo-de-agenda-rosa.png",
+      pic: "https://i.imgur.com/QjmtCpU.png",
+      date: "Abr-May 2025",
+      desc: "Agenda para llevar control de eventos o pendientes de forma organizada y estilizada.",
+      tech: "Next, Typescript, Prisma, Vercel, Netlify, Tailwind",
+      url: "https://agendajosefong.netlify.app/",
+      git: "https://github.com/JoseFong/event-test",
+    },
+  ];
+
+  const tecnologias = [
+    "JavaScript",
+    "TypeScript",
+    "Java",
+    "C",
+    "C#",
+    "SQL",
+    "MySQL",
+    "HTML",
+    "CSS",
+    "React",
+    "Next",
+    "Tailwind CSS",
+    "NodeJs",
+    "Prisma ORM",
+    "PostgreSQL",
+    "Vercel",
+    "Netlify",
+    "Figma",
+    "Canva",
+    "JWT",
+    "REST APIs",
+  ];
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="max-w-screen min-h-screen p-8 pt-20 bg-zinc-800 text-white">
+      <div className="z-10 w-screen bg-zinc-900 shadow-xl h-14 flex flex-row gap-8 text-lg items-center justify-center fixed top-0 left-0">
+        <a href="#sobremi" className="hover:scale-110 transition-all">
+          Sobre mi
+        </a>
+        <a href="#proyectos" className="hover:scale-110 transition-all">
+          Proyectos
+        </a>
+        <a href="#experiencia" className="hover:scale-110 transition-all">
+          Experiencia
+        </a>
+        <a href="#tecnologias" className="hover:scale-110 transition-all">
+          Tecnologías
+        </a>
+      </div>
+      <div className=" flex flex-row gap-10 justify-center">
+        <div className="flex flex-col justify-center gap-4">
+          <h1 className="text-4xl font-bold">José Manuel Fong López</h1>
+          <h2 className="text-2xl">Licenciado en Sistemas Computacionales</h2>
+          <div className="flex flex-col gap-2">
+            <div className="flex flex-row gap-4 items-center">
+              <Image src={phone} alt="Teléfono" className="w-6 h-6" />
+              <p>+52 686 233 8904</p>
+            </div>
+            <div className="flex flex-row gap-4 items-center">
+              <Image src={mail} alt="Correo" className="w-6 h-6" />
+              <p>fomi03@gmail.com</p>
+            </div>
+            <div className="flex flex-row gap-4 items-center">
+              <Image src={world} alt="Correo" className="w-6 h-6" />
+              <p>Mexicali, B.C., México</p>
+            </div>
+          </div>
+          <div className="flex flex-row text-lg gap-4">
+            <a
+              target="_blank"
+              className="flex flex-row gap-2 border-2 px-3 border-white p-2 rounded-2xl items-center justify-center transition-all hover:bg-zinc-500 hover:scale-105"
+              href="https://www.github.com/JoseFong"
+            >
+              <Image src={github} alt="Github" className="w-8 h-8" />
+              Github
+            </a>
+            <a
+              target="_blank"
+              className="flex flex-row gap-2 border-2 px-3 border-white p-2 rounded-2xl items-center justify-center transition-all hover:bg-zinc-500 hover:scale-105"
+              href="https://drive.google.com/drive/folders/17rQIWSyHRJTkYLEvOWNr3ylztansTFFM?usp=sharing"
+            >
+              <Image src={cv} alt="Github" className="w-8 h-8" />
+              Currículum
+            </a>
+          </div>
+        </div>
+        <img
+          src="https://i.imgur.com/bdRllK3.jpg"
+          className="rounded-full border-white border-8 h-80 shadow-xl"
+        />
+      </div>
+      <h1
+        className="mt-10 font-bold text-3xl text-center scroll-mt-20"
+        id="sobremi"
+      >
+        Sobre mi
+      </h1>
+      <div className="w-full flex items-center justify-center">
+        <div className="flex flex-row gap-6 items-center justify-center w-2/3">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/6062/6062646.png"
+            className="w-32"
+          />
+          <p className="mt-5 w-2/3 text-justify">
+            Soy José Fong, desarrollador web enfocado en crear aplicaciones
+            funcionales y organizadas con tecnologías como Next.js, TypeScript,
+            Prisma y Tailwind. Me apasiona transformar ideas en proyectos
+            reales, cuidando tanto la lógica del código como la experiencia
+            visual del usuario. Busco oportunidades para seguir creciendo
+            profesionalmente, colaborar en proyectos desafiantes y aportar
+            soluciones prácticas que generen impacto.
+          </p>
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <h1
+        className="mt-10 font-bold text-3xl text-center scroll-mt-20"
+        id="proyectos"
+      >
+        Proyectos Personales
+      </h1>
+      <div className="w-full flex items-center justify-center">
+        <p className="text-center w-2/3 mt-5 mb-6">
+          Los siguientes proyectos son prototipos que he desarrollado como
+          pasatiempo y para poner en práctica mis habilidades en el desarrollo
+          de aplicaciones con Next, TypeScript y la gestión de datos con el ORM
+          Prisma
+        </p>
       </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className="grid grid-cols-3 gap-8">
+        {projects.map((p: Project) => (
+          <ProjectCard project={p} />
+        ))}
       </div>
-    </main>
-  )
+      <h1
+        className="mt-10 font-bold text-3xl text-center scroll-mt-20"
+        id="experiencia"
+      >
+        Experiencia
+      </h1>
+      <div className="grid grid-cols-2 gap-6 p-6">
+        <div className="border-2 rounded-xl p-4 flex flex-col gap-3">
+          <h1 className="text-xl font-bold">Analista y Desarollador (2024)</h1>
+          <h2 className="font-bold">Fundación Synapsis</h2>
+          <ul className="list-disc list-inside">
+            <li>Desarrollo de un ChatBot para atención al cliente.</li>
+            <li>Configuración de punto de venta para servicio al cliente.</li>
+            <li>
+              Configuración de herramientas Zoho para la gestión empresarial.
+            </li>
+            <li>Automatización del proceso de ventas.</li>
+            <li>Integración de aplicaciones mediante APIs y WebHooks</li>
+          </ul>
+        </div>
+        <div className="border-2 rounded-xl p-4 flex flex-col gap-3">
+          <h1 className="text-xl font-bold">
+            Docente y Organizador de Eventos (2023-)
+          </h1>
+          <h2 className="font-bold">ImMusik</h2>
+          <ul className="list-disc list-inside">
+            <li>
+              Docente de clases de guitarra, teclado y bajo para grupos de 6 a 8
+              jóvenes.
+            </li>
+            <li>
+              Planificador de ensayos, eventos y administración de equipo.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <h1
+        className="mt-10 font-bold text-3xl text-center scroll-mt-20"
+        id="tecnologias"
+      >
+        Otras tecnologías que manejo
+      </h1>
+      <div className="grid grid-cols-6 gap-5 p-6">
+        {tecnologias.map((t: string) => (
+          <div className="border-2 border-white rounded-xl py-2 px-3 hover:scale-105 hover:bg-zinc-400 transition-all">
+            {t}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
+
+export default Homepage;
